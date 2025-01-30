@@ -1,12 +1,34 @@
-import {Container,Nav, Navbar,NavDropdown} from "react-bootstrap";
+import {Container,Nav, Navbar,NavDropdown,Form,InputGroup} from "react-bootstrap";
+import {BsSearch, BsCart2} from "react-icons/bs";
+import IconBadge from './iconBadge'
+
 import Logo from '/shop4Africa.svg'
 function Header() {
+  console.log('logo', Logo);
   return (
     <header>
-         <Navbar expand="lg" className="bg-body-tertiary">
+         <Navbar expand="lg"  bg="dark" data-bs-theme="dark" className="pt-3">
       <Container>
-        <Navbar.Brand href="#home"><img src={Logo}/></Navbar.Brand>
+        <Navbar.Brand href="#home"><img src={Logo}/>Shop4Africa</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Form inline>
+        <InputGroup >
+          <InputGroup.Text className="bg-transparent border-light" style={{borderTopLeftRadius:'50rem'
+            ,borderBottomLeftRadius:'50rem',borderRight:0}}><BsSearch/></InputGroup.Text>
+          <Form.Control
+            placeholder="Search"
+            aria-label=" Search" className="border-light"
+            style={{borderTopRightRadius:'50rem'
+              ,borderBottomRightRadius:'50rem',borderLeft:0}}
+            id="searchBar"
+          />
+        </InputGroup>
+      </Form>
+      <Container> 
+        <IconBadge icon={<BsCart2 />}></IconBadge>
+      </Container>
+      </Container>
+      <div >
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
@@ -24,7 +46,7 @@ function Header() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
     </header>
   )
